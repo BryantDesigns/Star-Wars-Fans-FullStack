@@ -39,9 +39,16 @@ export function DropdownButton<T extends React.ElementType = typeof Button>(
 export function DropdownMenu({
   anchor = 'bottom',
   ...props
-}: { anchor?: NonNullable<HeadlessMenuItemsProps['anchor']>['to'] } & Omit<HeadlessMenuItemsProps, 'anchor'>) {
+}: { anchor?: NonNullable<HeadlessMenuItemsProps['anchor']>['to'] } & Omit<
+  HeadlessMenuItemsProps,
+  'anchor'
+>) {
   return (
-    <HeadlessTransition as={Fragment} leave="duration-100 ease-in" leaveTo="opacity-0">
+    <HeadlessTransition
+      as={Fragment}
+      leave="duration-100 ease-in"
+      leaveTo="opacity-0"
+    >
       <HeadlessMenuItems
         {...props}
         anchor={{
@@ -79,7 +86,9 @@ export function DropdownMenu({
   )
 }
 
-export function DropdownItem(props: { href?: string } & HeadlessMenuItemProps<'button'>) {
+export function DropdownItem(
+  props: { href?: string } & HeadlessMenuItemProps<'button'>
+) {
   return (
     <HeadlessMenuItem
       as={props.href ? Link : 'button'}
@@ -114,11 +123,22 @@ export function DropdownItem(props: { href?: string } & HeadlessMenuItemProps<'b
   )
 }
 
-export function DropdownHeader({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div {...props} className={clsx(className, 'col-span-5 px-3.5 pb-1 pt-2.5 sm:px-3')} />
+export function DropdownHeader({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
+  return (
+    <div
+      {...props}
+      className={clsx(className, 'col-span-5 px-3.5 pb-1 pt-2.5 sm:px-3')}
+    />
+  )
 }
 
-export function DropdownSection({ className, ...props }: HeadlessMenuSectionProps) {
+export function DropdownSection({
+  className,
+  ...props
+}: HeadlessMenuSectionProps) {
   return (
     <HeadlessMenuSection
       {...props}
@@ -131,7 +151,10 @@ export function DropdownSection({ className, ...props }: HeadlessMenuSectionProp
   )
 }
 
-export function DropdownHeading({ className, ...props }: HeadlessMenuHeadingProps) {
+export function DropdownHeading({
+  className,
+  ...props
+}: HeadlessMenuHeadingProps) {
   return (
     <HeadlessMenuHeading
       {...props}
@@ -143,7 +166,10 @@ export function DropdownHeading({ className, ...props }: HeadlessMenuHeadingProp
   )
 }
 
-export function DropdownSeparator({ className, ...props }: HeadlessMenuSeparatorProps) {
+export function DropdownSeparator({
+  className,
+  ...props
+}: HeadlessMenuSeparatorProps) {
   return (
     <HeadlessMenuSeparator
       {...props}
@@ -157,11 +183,19 @@ export function DropdownSeparator({ className, ...props }: HeadlessMenuSeparator
 
 export function DropdownLabel({ className, ...props }: HeadlessLabelProps) {
   return (
-    <HeadlessLabel {...props} data-slot="label" className={clsx(className, 'col-start-2 row-start-1')} {...props} />
+    <HeadlessLabel
+      {...props}
+      data-slot="label"
+      className={clsx(className, 'col-start-2 row-start-1')}
+      {...props}
+    />
   )
 }
 
-export function DropdownDescription({ className, ...props }: HeadlessDescriptionProps) {
+export function DropdownDescription({
+  className,
+  ...props
+}: HeadlessDescriptionProps) {
   return (
     <HeadlessDescription
       data-slot="description"
@@ -183,7 +217,10 @@ export function DropdownShortcut({
     <HeadlessDescription
       as="kbd"
       {...props}
-      className={clsx(className, 'col-start-5 row-start-1 flex justify-self-end')}
+      className={clsx(
+        className,
+        'col-start-5 row-start-1 flex justify-self-end'
+      )}
     >
       {(Array.isArray(keys) ? keys : keys.split('')).map((char, index) => (
         <kbd

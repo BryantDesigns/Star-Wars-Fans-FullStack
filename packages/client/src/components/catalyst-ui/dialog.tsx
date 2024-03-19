@@ -31,7 +31,10 @@ export function Dialog({
   className,
   children,
   ...props
-}: { size?: keyof typeof sizes; children: React.ReactNode } & HeadlessDialogProps) {
+}: {
+  size?: keyof typeof sizes
+  children: React.ReactNode
+} & HeadlessDialogProps) {
   return (
     <HeadlessTransition appear as={Fragment} show={open} {...props}>
       <HeadlessDialog onClose={onClose}>
@@ -80,24 +83,45 @@ export function Dialog({
   )
 }
 
-export function DialogTitle({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function DialogTitle({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <HeadlessDialogTitle
       {...props}
-      className={clsx(className, 'text-balance text-lg/6 font-semibold text-zinc-950 sm:text-base/6 dark:text-white')}
+      className={clsx(
+        className,
+        'text-balance text-lg/6 font-semibold text-zinc-950 sm:text-base/6 dark:text-white'
+      )}
     />
   )
 }
 
-export function DialogDescription({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <HeadlessDescription as={Text} {...props} className={clsx(className, 'mt-2 text-pretty')} />
+export function DialogDescription({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
+  return (
+    <HeadlessDescription
+      as={Text}
+      {...props}
+      className={clsx(className, 'mt-2 text-pretty')}
+    />
+  )
 }
 
-export function DialogBody({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function DialogBody({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
   return <div {...props} className={clsx(className, 'mt-6')} />
 }
 
-export function DialogActions({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function DialogActions({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <div
       {...props}
